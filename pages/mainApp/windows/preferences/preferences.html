@@ -1,0 +1,48 @@
+<div class="preferencesContainer mainApp">
+
+    <div class="sidePanel left">
+        <div class="profileImage" data-user="tempData"></div>
+    </div>
+
+    <div class="sidePanel right">
+        <div class="rightPanelTitle">USER INTERFACE</div>
+        <div class="smallTitle">History:</div><input type="checkbox" data-ng-model="dataService.loggedInUser.preferences.showHistory">
+        <div class="smallTitle">Menu Titles:</div><input type="checkbox" data-ng-model="dataService.loggedInUser.preferences.showMenuTitles">
+        <div class="smallTitle">Hover Info:</div><input type="checkbox" data-ng-model="dataService.loggedInUser.preferences.showHoverBoardInfo">
+        <div class="smallTitle">Vote Highlight:</div><input type="checkbox" data-ng-model="dataService.loggedInUser.preferences.showVoteHighlights">
+
+        <div class="buttonsContainer">
+            <button class="btn btn-primary btn-sm" data-ng-click="clearHistory()" data-ng-disabled="dataService.loggedInUser.history.length == 0">CLEAR HISTORY</button>
+        </div>
+
+    </div>
+
+    <div class="mainPanel">
+        <form class="preferencesForm" novalidate>
+            <div class="formRow">
+                <div class="largeTitle">FIRST</div>
+                <div class="inputContainer"><input type="text" data-ng-model="tempData.fName" maxlength="30" required></div>
+            </div>
+            <div class="formRow">
+                <div class="largeTitle">LAST</div>
+                <div class="inputContainer"><input type="text" data-ng-model="tempData.lName" maxlength="30" required></div>
+            </div>
+            <div class="formRow">
+                <div class="largeTitle">EMAIL</div>
+                <div class="inputContainer"><input type="email" data-ng-model="tempData.email" maxlength="30" required></div>
+            </div>
+            <div class="formRow">
+                <div class="largeTitle">PASSWORD</div>
+                <div class="inputContainer"><input type="password" data-ng-model="tempData.password1" maxlength="40"></div>
+            </div>
+            <div class="formRow">
+                <div class="largeTitle">CONFIRM</div>
+                <div class="inputContainer"><input type="password" data-ng-model="tempData.password2" maxlength="40" data-ng-class="{'ng-invalid': tempData.password1 != tempData.password2}"></div>
+            </div>
+            <button class="btn btn-primary" data-ng-click="save()" data-ng-disabled="savePreferencesDisabled()">SAVE</button>
+        </form>
+    </div>
+
+</div>
+
+

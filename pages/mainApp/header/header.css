@@ -1,0 +1,73 @@
+div.headerContainer {
+    padding: 10px;
+    height: 100px;
+    background-color: #EFEFEF;
+    border-bottom: 1px solid #999999;
+    position: absolute;
+    left: 100px;
+    top: 0;
+    right: 0;
+}
+    div.headerContainer > div.right {
+        height: 100%;
+    }
+        div.headerContainer > div.right > div.history {
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding: 10px;
+        }
+        div.headerContainer > div.right > div.history > span > a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        div.headerContainer > div.right > div.history > span > span.separator {
+            padding: 0 5px;
+        }
+        div.headerContainer > div.right > div.iconContainer {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding-left: 10px;
+        }
+                div.headerContainer > div.right > div.iconContainer > a {
+                    margin-right: -2px;
+                }
+                div.headerContainer > div.right > div.iconContainer > a > i {
+                    cursor: pointer;
+                    margin: 0;
+                    color: #000000;
+                    font-size: 40px;
+                    padding: 5px 12px;
+                    vertical-align: top;
+                    border-radius: 5px;
+                }
+                div.headerContainer > div.right > div.iconContainer > a > i:hover {
+                    background-color: #dfdfdf;
+                    color: #2a6496;
+                }
+                div.headerContainer > div.right > div.iconContainer > a > i.active {
+                    border: 1px solid #2a6496;
+                    background-color: rgb(35, 35, 35);
+                    color: #FFFFFF;
+                }
+
+    div.headerContainer > div.left.shadow {
+        background-color: #dfdfdf;
+    }
+    div.headerContainer > div.left {
+        width: 280px;
+        height: 100%;
+        float: left;
+        margin-right: 10px;
+        overflow: hidden;
+    }
+
+        div.headerContainer > div.left > div.title {
+            font-size: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        div.headerContainer > div.left > div.description {
+            height: 35px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }

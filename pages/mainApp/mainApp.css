@@ -1,0 +1,56 @@
+div.mainApp {
+    position: relative;
+    padding: 100px 0 0 100px;
+    height: 100%;
+}
+    div.mainApp > div.contents {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    div.mainApp > div.contents > div.mainPanel{
+        padding: 20px;
+
+
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 100%;
+    }
+    div.mainApp > div.contents > div.sidePanel {
+        padding: 10px;
+        width: 300px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+        div.mainApp > div.contents > div.sidePanel.right {
+            float: right;
+            border-left: 1px solid #999999;
+            height: 100%;
+        }
+        div.mainApp > div.contents > div.sidePanel.left {
+            float: left;
+            border-right: 1px solid #999999;
+            height: 100%;
+        }
+            div.mainApp > div.contents > div.sidePanel > div.sidePanelRow {
+                margin-bottom: 10px;
+            }
+            div.mainApp > div.contents > div.sidePanel > div.sidePanelRow.buttons {
+                text-align: center;
+            }
+            div.mainApp > div.contents > div.sidePanel > div.sidePanelRow.titleLarge {
+                font-size: 20px;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            div.mainApp > div.contents > div.sidePanel > div.sidePanelRow.titleSmall {
+                font-size: 16px;
+                overflow: hidden;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+            div.mainApp > div.contents > div.sidePanel > div.sidePanelRow.description {
+                height: 35px;
+                overflow-y: auto;
+            }

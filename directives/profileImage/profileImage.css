@@ -1,0 +1,24 @@
+div.profileImageContainer {
+    width: 100%;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 5px;
+}
+    div.profileImageContainer > img {
+        width: 100%;
+        height: 100%;
+    }
+    div.profileImageContainer > div.changeText {
+        opacity: 0;
+        position: absolute;
+        font-size: 40px;
+        text-align: center;
+        width: 100%;
+    }
+
+    div.profileImageContainer:hover                  {border-color: #000000;}
+    div.profileImageContainer:hover > img            {opacity: 0.2; }
+    div.profileImageContainer:hover > div.changeText {opacity: 1;}

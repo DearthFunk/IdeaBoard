@@ -1,0 +1,46 @@
+div.preferencesContainer {
+
+}
+    div.preferencesContainer div.mainPanel > form.preferencesForm {
+        width: 360px;
+        display: inline-block;
+    }
+            div.preferencesContainer div.mainPanel > form.preferencesForm > button {
+                width: 100%;
+                margin-top: 20px;
+            }
+            div.preferencesContainer div.mainPanel > form.preferencesForm > div.formRow > div.inputContainer {
+                width: 200px;
+                display: inline-block;
+                padding: 5px;
+            }
+                    div.preferencesContainer div.mainPanel > form.preferencesForm > div.formRow > div.inputContainer > input{
+                        padding: 5px;
+                    }
+
+    div.preferencesContainer div.smallTitle {
+        font-size: 15px;
+        width: 150px;
+        display: inline-block;
+        text-align: right;
+        padding-right: 20px;
+    }
+    div.preferencesContainer div.largeTitle {
+        font-weight: bold;
+        font-size: 16px;
+        width: 150px;
+        display: inline-block;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+
+div.preferencesContainer div.sidePanel.right > div.rightPanelTitle {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+div.preferencesContainer div.sidePanel.right > div.buttonsContainer {
+    margin-top: 20px;
+    text-align: center;
+}

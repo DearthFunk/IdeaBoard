@@ -1,0 +1,23 @@
+<div class="boardContainer mainApp">
+
+    <div class="sidePanel left">
+        <div class="sidePanelRow buttons">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" data-ng-click="expandIdeas()"><i class="fa fa-expand"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="collapseIdeas()"><i class="fa fa-compress"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="dataService.newIdea('lg', board)">NEW IDEA</button>
+            </div>
+        </div>
+        <hr>
+        <div class="sidePanelRow titleLarge">Board Info</div>
+        <div class="sidePanelRow titleSmall">{{board.name}}</div>
+        <div class="sidePanelRow description">{{board.description}}</div>
+        <hr>
+
+    </div>
+
+    <div class="mainPanel">
+        <div class="ideaTile" data-idea="idea" data-board="board" data-ng-repeat="idea in board.ideas | orderBy:'votes':true"></div>
+    </div>
+
+</div>

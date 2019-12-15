@@ -1,0 +1,63 @@
+<div class="usersContainer mainApp">
+
+    <div class="sidePanel left">
+        <div class="topRow"><div class="btn-group">
+            <button type="button" class="btn btn-primary {{selectWindow==1}} {{!teamSelected}}" data-ng-click="teamSelected = false"><i class="fa fa-user"></i> USERS</button>
+            <button type="button" class="btn btn-primary {{selectWindow==2}} {{teamSelected}}"  data-ng-click="teamSelected = true"><i class="fa fa-users"></i> TEAMS</button>
+        </div></div>
+        <div class="userRow new" data-ng-class="{active:userIndex === -1}" data-ng-click="selectUser(-1)" data-ng-if="!teamSelected">New User</div>
+        <div class="userRow" data-ng-class="{'active':userIndex === $index}" data-ng-click="selectUser($index)" data-ng-if="!teamSelected" data-ng-repeat="user in dataService.users track by $index">
+            <img data-ng-src="{{user.profileImg}}">{{user.fName}} {{user.lName}}
+        </div>
+        <div class="userRow new" data-ng-class="{active:teamIndex === -1}" data-ng-click="selectTeam(-1)" data-ng-if="teamSelected">New Team</div>
+        <div class="userRow" data-ng-class="{'active':teamIndex === $index}" data-ng-click="selectTeam($index)" data-ng-if="teamSelected" data-ng-repeat="team in dataService.teams track by $index">
+            <img data-ng-src="{{team.profileImg}}">{{team.name}}
+        </div>
+    </div>
+
+    <div class="sidePanel right" data-ng-show="teamSelected">
+        <div class="topRow">SELECT USERS</div>
+        <div class="userRow" data-ng-click="addToTeam(user.id)" data-ng-repeat="user in dataService.users track by $index" data-ng-class="{'active':tempTeam.users.indexOf(user.id) != -1}">
+            <img data-ng-src="{{user.profileImg}}">{{user.fName}} {{user.lName}}
+        </div>
+    </div>
+
+    <div class="mainPanel">
+        <form class="teamUserEditForm" data-ng-if="!teamSelected">
+            <table class="table table-striped table-hover">
+                <tr><td class="title">FIRST</td>
+                    <td class="editField"><input type="text" data-ng-model="tempUser.fName" maxlength="30" required></td>
+                </tr>
+                <tr><td class="title">LAST</td>
+                    <td class="editField"><input type="text" data-ng-model="tempUser.lName" maxlength="30" required></td>
+                </tr>
+                <tr><td class="title">EMAIL</td>
+                    <td class="editField"><input type="email" data-ng-model="tempUser.email" maxlength="50" required></td>
+                </tr>
+
+
+                <tr><td class="title">Settings</td><td class="editField"><input type="checkbox" data-ng-model="tempUser.permissions.settings"></td></tr>
+                <tr><td class="title">Users</td><td class="editField"><input type="checkbox" data-ng-model="tempUser.permissions.users"></td></tr>
+                <tr><td class="title">Reports</td><td class="editField"><input type="checkbox" data-ng-model="tempUser.permissions.reports"></td></tr>
+                <tr><td class="title">Voting Mechanics</td><td class="editField"><input type="checkbox" data-ng-model="tempUser.permissions.votingmechanics"></td></tr>
+                <tr><td class="title">Board Management</td><td class="editField"><input type="checkbox" data-ng-model="tempUser.permissions.boardmanagement"></td></tr>
+
+                <tr><td class="save" colspan="2"><button type="button" class="btn btn-primary" data-ng-disabled="canSaveUser()" data-ng-click="saveUser()">SAVE</button></td>
+                <tr data-ng-if="userIndex != -1"><td class="delete" colspan="2"><button type="button" class="btn btn-primary" data-ng-click="deleteUser()">DELETE</button></td>
+            </table>
+        </form>
+        <form class="teamUserEditForm" data-ng-if="teamSelected">
+            <table class="table table-striped table-hover">
+                <tr><td class="title">NAME</td>
+                    <td class="editField"><input type="text" data-ng-model="tempTeam.name" maxlength="30" required></td>
+                </tr>
+                <tr><td class="save" colspan="2"><button type="button" class="btn btn-primary" data-ng-disabled="canSaveTeam()" data-ng-click="saveTeam()">SAVE</button></td>
+                <tr data-ng-if="teamIndex != -1"><td class="delete" colspan="2"><button type="button" class="btn btn-primary" data-ng-click="deleteTeam()">DELETE</button></td>
+            </table>
+        </form>
+        <div class="profileImage" data-user="teamSelected ? tempTeam : tempUser"></div>
+    </div>
+
+
+
+</div>

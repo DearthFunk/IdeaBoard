@@ -1,0 +1,7 @@
+<div class="ideaTileContainer" data-ng-style="{width: width+'px', height:height+'px'}">
+    <a data-ng-href="#board/{{board.id}}/idea/{{idea.id}}">
+        <div class="code" data-ng-bind-html="idea.htmlCode | acceptSCE"></div>
+    </a>
+    <div class="voteCounter" data-ng-class="{down:getTotalVotes()<1, up:getTotalVotes()>0}">{{getTotalVotes()}}</div>
+    <i class="fa fa-rss" data-ng-mousedown="startResize($event)" data-ng-dblclick="resetSize()"></i>
+</div>

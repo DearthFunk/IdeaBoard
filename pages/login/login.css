@@ -1,0 +1,36 @@
+div.loginContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -400px;
+    width: 800px;
+    height: 500px;
+    background-color: rgba(100,100,100,0.15);
+    border-radius: 2px;
+    padding: 70px 180px;
+    border: 1px solid rgba(50,50,50,0.15);
+}
+
+    div.loginContainer > div.center {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+        div.loginContainer > div.center > form.loginForm > div.row {
+            margin-bottom: 10px;
+        }
+
+        div.loginContainer > div.center > form.loginForm div.title {
+            font-size: 60px;
+        }
+            div.loginContainer > div.center > form.loginForm > div.row > input {
+                width: 300px;
+                padding: 8px 10px;
+                font-size: 20px;
+            }
+            div.loginContainer > div.center > form.loginForm > div.row > button.login {
+                width: 160px;
+                height: 40px;
+                font-size: 20px;
+            }

@@ -1,0 +1,16 @@
+<div class="loginContainer">
+    <div class="center">
+        <form class="loginForm">
+            <div class="row title">Idea Board</div>
+            <div class="row"><input type="email" data-ng-model="email" placeholder="Email" required></div>
+            <div class="row"><input type="password" data-ng-model="password" placeholder="Password" required></div>
+            <div class="row"><button class="btn btn-primary login" data-ng-disabled="loginDisabled()" data-ng-click="login()">LOGIN</button></div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm" data-ng-repeat="item in dataService.users track by $index" data-ng-click="loadDemoCredentials($index)">
+                    {{item.fName}} {{item.lName}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

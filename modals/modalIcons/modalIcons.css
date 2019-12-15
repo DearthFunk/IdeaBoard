@@ -1,0 +1,21 @@
+div.modalIconContainer {
+
+}
+div.modalIconContainer div.modal-body.iconSelector > span i {
+    font-size: 40px;
+    padding: 1px 5px;
+    cursor: pointer;
+}
+div.modalIconContainer div.modal-body.iconSelector > span img {
+    width: 40px;
+    height: 40px;
+}
+div.modalIconContainer div.modal-body.iconSelector .icon:hover {
+    background-color: rgba(100,100,100,0.2);
+}
+div.modalIconContainer div.modal-body.iconSelector .icon.active {
+    background-color: rgba(100,100,255,0.5);
+}
+div.modalIconContainer div.modal-body.iconSelector .icon.selected {
+    background-color: rgba(100,255,100,0.5);
+}

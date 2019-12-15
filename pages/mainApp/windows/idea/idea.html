@@ -1,0 +1,57 @@
+<div class="ideaContainer mainApp">
+
+    <div class="sidePanel left">
+        <div class="sidePanelRow buttons">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" data-ng-click="changeComment(true,true)"><i class="fa fa-angle-double-left"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="changeComment(true,false)"><i class="fa fa-angle-left"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="changeComment(false,false)"><i class="fa fa-angle-right"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="changeComment(false,true)"><i class="fa fa-angle-double-right"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="dataService.newIdea('lg', board)">NEW IDEA</button>
+            </div>
+        </div>
+        <hr>
+        <div class="sidePanelRow titleLarge">Board Info</div>
+        <div class="sidePanelRow titleSmall">{{board.name}}</div>
+        <div class="sidePanelRow description">{{board.description}}</div>
+        <hr>
+        <div class="sidePanelRow titleLarge">Idea Info</div>
+        <div class="sidePanelRow">
+            <b>Number:</b> {{board.ideas.indexOf(idea)+1}}/{{board.ideas.length}}<br>
+            <b>Votes:</b> {{getTotalVotes()}}<br>
+            <b>Created By:</b> {{getUser(idea.userId)}}<br>
+            <b>Created On:</b> {{idea.dateCreated | date:'MM/dd/yyyy'}} <i>{{idea.dateCreated | date:'shortTime'}}</i>
+        </div>
+        <hr>
+    </div>
+    <div class="sidePanel right">
+        <div class="sidePanelRow">
+            <button type="button" data-ng-disabled="canVote()" class="btn btn-primary" data-ng-click="tempData.voting = !tempData.voting">
+                <span data-ng-if="!canVote()"><i class="fa fa-thumbs-o-up"></i>VOTE<i class="fa fa-thumbs-o-down"></i></span>
+                <span data-ng-if="canVote()">ALREADY VOTED</span>
+            </button>
+        </div>
+        <div class="sidePanelRow center" data-ng-show="tempData.voting">
+            <textarea data-ng-model="tempData.comment" maxlength="10000" placeholder="Comment"></textarea>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" data-ng-class="{'green':tempData.vote==1}" data-ng-click="tempData.vote = 1"><i class="fa fa-thumbs-o-up"></i></button>
+                <button type="button" class="btn btn-default" data-ng-class="{'red':tempData.vote==2}"  data-ng-click="tempData.vote = 2"><i class="fa fa-thumbs-o-down"></i></button>
+                <button type="button" class="btn btn-default" data-ng-disabled="canSaveComment(userComment)" data-ng-click="saveComment()">SAVE</button>
+            </div>
+        </div>
+
+        <div class="comment" data-ng-repeat="comment in idea.comments | orderBy : 'dateCreated' : true">
+            <div class="commentTitle {{comment.voteType==1}}" data-ng-class="{'showVoteHighlights':dataService.loggedInUser.preferences.showVoteHighlights}">
+                <i class="fa {{comment.voteType ? 'fa-thumbs-o-up' : 'fa-thumbs-o-down'}}"></i>
+                {{getUser(comment.userId)}} - {{comment.dateCreated | date:'MM/dd/yyyy'}} <i>{{comment.dateCreated | date:'shortTime'}}</i>
+            </div>
+            {{comment.comment}}
+        </div>
+    </div>
+
+    <div class="mainPanel">
+        <div class="code" data-ng-bind-html="idea.htmlCode | acceptSCE"></div>
+    </div>
+
+</div>

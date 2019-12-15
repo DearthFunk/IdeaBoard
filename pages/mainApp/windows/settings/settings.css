@@ -1,0 +1,29 @@
+div.settingsContainer > div.contents {
+
+}
+    div.settingsContainer div.sidePanel.left > form.settingsForm > button {
+        width: 100%;
+        margin-top: 20px;
+    }
+    div.settingsContainer div.sidePanel.left > form.settingsForm > div.settingsRow {
+        margin-bottom: 10px;
+    }
+            div.settingsContainer div.sidePanel.left > form.settingsForm > div.settingsRow > div.title {
+                font-weight: bold;
+                font-size: 16px;
+                display: inline-block;
+            }
+
+    div.settingsContainer div.mainPanel > div.btn-group {
+        margin-bottom: 10px;
+    }
+        div.settingsContainer div.mainPanel > div.btn-group > button.true {
+            background-color: #428bca;
+            color: #FFFFFF;
+        }
+
+
+
+
+
+

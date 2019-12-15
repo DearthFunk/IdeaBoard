@@ -1,0 +1,18 @@
+<div class="modalIconContainer">
+    <input type="file" id="iconUploader" style="display:none;">
+    <div class="modal-header">
+        <h3 class="modal-title">Select Your Icon</h3>
+    </div>
+    <div class="modal-body iconSelector">
+        <span data-ng-repeat="icon in icons track by $index" data-ng-click="updateIcon($index)">
+            <i data-ng-if="icon.type" data-ng-class="{active: board.icon == icon.val, selected: $index==selected}" class="icon fa {{icon.val}}"></i>
+            <img data-ng-if="!icon.type" data-ng-src="icon.val" data-ng-class="{active: selected == icon}" class="icon iconImage">
+        </span>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-ng-click="uploadImage()">Upload Image</button>
+        <button class="btn btn-primary" data-ng-click="ok()">OK</button>
+        <button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-ng-app="ideaBoard" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="description" content="Dearth Funk, music and web applications.">
+    <meta name="keywords" content="Dearth, Funk, DearthFunk, Djangular, D'Jangular, Colonies, Hexsynth, Hex Synth, Hex,Ideas, IdeaBoard">
+    <meta name="author" content="Dearth Funk">
+
+
+    <title>Idea Board!</title>
+<!--
+     _____          ___           ___           ___                       ___                    ___         ___           ___           ___
+    /  /::\        /  /\         /  /\         /  /\          ___        /__/\                  /  /\       /__/\         /__/\         /__/|
+   /  /:/\:\      /  /:/_       /  /::\       /  /::\        /  /\       \  \:\                /  /:/_      \  \:\        \  \:\       |  |:|
+  /  /:/  \:\    /  /:/ /\     /  /:/\:\     /  /:/\:\      /  /:/        \__\:\              /  /:/ /\      \  \:\        \  \:\      |  |:|
+ /__/:/ \__\:|  /  /:/ /:/_   /  /:/~/::\   /  /:/~/:/     /  /:/     ___ /  /::\            /  /:/ /:/  ___  \  \:\   _____\__\:\   __|  |:|
+ \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/\:\ /__/:/ /:/___  /  /::\    /__/\  /:/\:\          /__/:/ /:/  /__/\  \__\:\ /__/::::::::\ /__/\_|:|____
+  \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:/__\/ \  \:\/:::::/ /__/:/\:\   \  \:\/:/__\/          \  \:\/:/   \  \:\ /  /:/ \  \:\~~\~~\/ \  \:\/:::::/
+   \  \:\/:/    \  \::/ /:/   \  \::/       \  \::/~~~~  \__\/  \:\   \  \::/                \  \::/     \  \:\  /:/   \  \:\  ~~~   \  \::/~~~~
+    \  \::/      \  \:\/:/     \  \:\        \  \:\           \  \:\   \  \:\                 \  \:\      \  \:\/:/     \  \:\        \  \:\
+     \__\/        \  \::/       \  \:\        \  \:\           \__\/    \  \:\                 \  \:\      \  \::/       \  \:\        \  \:\
+                   \__\/         \__\/         \__\/                     \__\/                  \__\/       \__\/         \__\/         \__\/  -->
+
+    <!--LIBRARIES------------------------------------------------------------------------------------------------------>
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <script type="text/javascript" src="lib/zeroClipboard/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery-2.1.1.min.js"></script>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/textAngular/src/textAngular.js"></script>
+    <script type="text/javascript" src="lib/textAngular/src/textAngularSetup.js"></script>
+    <script type="text/javascript" src="lib/textAngular/src/textAngular-sanitize.js"></script>
+
+    <!--MAIN-------------------------------------------------------------------------------------------------------->
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/ideaBoard.js"></script>
+    <script type="text/javascript" src="js/globalAttributes.js"></script>
+    <script type="text/javascript" src="js/globalFilters.js"></script>
+
+    <!--MODALS--------------------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="modals/modalHTML/modalHTML.js"></script>
+    <link rel="stylesheet" href="modals/modalHTML/modalHTML.css">
+    <script type="text/javascript" src="modals/modalIcons/modalIcons.js"></script>
+    <link rel="stylesheet" href="modals/modalIcons/modalIcons.css">
+
+    <!--SERVICES------------------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="js/services/browserType.js"></script>
+    <script type="text/javascript" src="js/services/data.js"></script>
+    <script type="text/javascript" src="js/services/event.js"></script>
+    <script type="text/javascript" src="js/services/theme.js"></script>
+    <script type="text/javascript" src="js/services/localizations.js"></script>
+
+    <!--DIRECTIVES----------------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="directives/ideaTile/ideaTile.js"></script>
+    <link rel="stylesheet" href="directives/ideaTile/ideaTile.css">
+    <script type="text/javascript" src="directives/profileImage/profileImage.js"></script>
+    <link rel="stylesheet" href="directives/profileImage/profileImage.css">
+
+    <!--LOGIN---------------------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="pages/login/login.js"></script>
+    <link rel="stylesheet" href="pages/login/login.css">
+
+    <!--PANELS--------------------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="pages/mainApp/header/header.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/header/header.css">
+    <script type="text/javascript" src="pages/mainApp/sideMenu/sideMenu.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/sideMenu/sideMenu.css">
+    <script type="text/javascript" src="pages/mainApp/mainApp.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/mainApp.css">
+
+    <!--WINDOWS---------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="pages/mainApp/windows/board/board.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/board/board.css">
+    <script type="text/javascript" src="pages/mainApp/windows/boardManagement/boardManagement.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/boardManagement/boardManagement.css">
+    <script type="text/javascript" src="pages/mainApp/windows/idea/idea.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/idea/idea.css">
+    <script type="text/javascript" src="pages/mainApp/windows/preferences/preferences.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/preferences/preferences.css">
+    <script type="text/javascript" src="pages/mainApp/windows/settings/settings.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/settings/settings.css">
+        <script type="text/javascript" src="pages/mainApp/windows/settings/recycleBin/recycleBin.js"></script>
+        <link rel="stylesheet" href="pages/mainApp/windows/settings/recycleBin/recycleBin.css">
+        <script type="text/javascript" src="pages/mainApp/windows/settings/themeCreator/themeCreator.js"></script>
+        <link rel="stylesheet" href="pages/mainApp/windows/settings/themeCreator/themeCreator.css">
+        <script type="text/javascript" src="pages/mainApp/windows/settings/passwordConstraints/passwordConstraints.js"></script>
+        <link rel="stylesheet" href="pages/mainApp/windows/settings/passwordConstraints/passwordConstraints.css">
+    <script type="text/javascript" src="pages/mainApp/windows/users/users.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/users/users.css">
+    <script type="text/javascript" src="pages/mainApp/windows/votingMechanics/votingMechanics.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/votingMechanics/votingMechanics.css">
+    <script type="text/javascript" src="pages/mainApp/windows/reports/reports.js"></script>
+    <link rel="stylesheet" href="pages/mainApp/windows/reports/reports.css">
+
+</head>
+
+<body>
+    <div class="ng-view"></div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+div.recycleBinContainer {
+}
+
+    div.recycleBinContainer > table.recycleBinTable {
+        font-size: 14px;
+    }
+
+        div.recycleBinContainer > table.recycleBinTable tr.tableHeader > td {
+            font-weight: bold;
+        }
+            div.recycleBinContainer > table.recycleBinTable td.restore:hover {
+                background-color: rgba(0,100,255,0.5);
+                color: #FFFFFF;
+            }
+            div.recycleBinContainer > table.recycleBinTable td.restore {
+                color: #0000FF;
+                cursor: pointer;
+                border-right: 1px solid black;
+            }
+
+            div.recycleBinContainer > table.recycleBinTable td {
+                padding: 2px 15px;
+                font-size: 14px;
+            }
+            div.recycleBinContainer > table.recycleBinTable td.dateDeleted {
+                font-style: italic;
+            }
+
+

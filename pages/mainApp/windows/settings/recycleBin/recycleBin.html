@@ -1,0 +1,22 @@
+<div class="recycleBinContainer">
+
+    <table class="recycleBinTable">
+        <tr class="tableHeader">
+            <td></td>
+            <td>NAME</td>
+            <td>TYPE</td>
+            <td>BY USER</td>
+            <td>DATE DELETED</td>
+        </tr>
+        <tr class="rows" data-ng-repeat="item in dataService.recycleBin track by $index">
+            <td class="restore" data-ng-click="restoreItem($index)">restore</td>
+            <td class="name">{{item.name}}</td>
+            <td class="type">{{item.deleteInfo.objType}}</td>
+            <td class="user">
+                <span data-ng-repeat="user in dataService.users" data-ng-if="user.id == item.deleteInfo.userId">{{user.fName}} {{user.lName}}</span>
+            </td>
+            <td class="dateDeleted">{{item.deleteInfo.dateDeleted | date : 'fullDate'}}</td>
+        </tr>
+    </table>
+
+</div>

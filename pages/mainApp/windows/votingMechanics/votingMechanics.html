@@ -1,0 +1,39 @@
+<div class="votingMechanicsContainer mainApp">
+
+    <div class="sidePanel left">
+        <div class="message">Please Note: if you deactivate any voting mechanics that are currently assigned to a board, the board will be set to use the Default voting mechanics.</div>
+        <div class="mechanicsButton"
+             data-ng-repeat="item in dataService.votingMechanics track by $index"
+             data-ng-click="selectMechanics($index)"
+             data-ng-class="{active:activeMechanics==$index}">
+            <div class="iconContainer" data-ng-if="$index != 0">
+                <i data-ng-click="moveDown($event,$index)" class="fa fa-arrow-circle-o-up"></i>
+                <i data-ng-click="moveUp($event,$index)" class="fa fa-arrow-circle-o-down"></i>
+                <i data-ng-click="remove($event,$index)" class="fa fa-minus-circle"></i>
+            </div>
+            <input data-ng-show="$index != 0" class="enabledCheckbox" type="checkbox" data-ng-model="item.enabled" data-ng-click="toggleEnable($event,$index)">
+            {{item.name}}</div>
+        <div class="mechanicsButton" data-ng-click="newMechanics()">+</div>
+    </div>
+
+    <div class="mainPanel">
+        <form class="votingMechanicsForm">
+            <div class="vmRow">
+                <div class="title">NAME</div>
+                <input type="text" maxlength="30" data-ng-model="tempData.name" data-ng-disabled="activeMechanics == 0" required>
+            </div>
+            <div class="vmRow">
+                <div class="title">DESCRIPTION</div>
+                <textarea maxlength="200"  data-ng-model="tempData.description"></textarea>
+            </div>
+            <div class="vmRow" data-ng-repeat="(key,obj) in tempData.values | toArray | orderBy: 'orderBy'">
+                <div class="title">{{locService.localizations.votingMechanics[key].name}}</div>
+                <div class="description">{{locService.localizations.votingMechanics[key].description}}</div>
+                <input class="checkbox" type="checkbox" data-ng-model="obj.enabled">
+                <input data-ng-disabled="!obj.enabled" data-reg-exp="/^[0-9]*$/" class="number" data-ng-if="obj.hasOwnProperty('amnt')" data-ng-model="obj.amnt" type="number">
+            </div>
+            <button class="btn btn-primary btn-sm" data-ng-click="save()" data-ng-disabled="saveMechanicsDisabled()">SAVE</button>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,8 @@
+<div class="sideMenuContainer">
+    <div class="logout" data-ng-click="logout()">logout</div>
+    <div class="menuLink" data-ng-class="{'active':selectedMenu == $index}" data-ng-repeat="item in intWindow track by $index" data-ng-if="dataService.loggedInUser.permissions[item.name] || $index == 0">
+        <a data-ng-href="#/{{item.name}}"><span data-ng-show="dataService.loggedInUser.preferences.showMenuTitles">{{item.txt}}</span></a>
+        <i data-ng-if="item.icon" class="fa" data-ng-class="item.icon"></i>
+        <img data-ng-if="!item.icon" data-ng-src="{{dataService.loggedInUser.profileImg}}">
+    </div>
+</div>

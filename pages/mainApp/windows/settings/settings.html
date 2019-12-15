@@ -1,0 +1,37 @@
+<div class="settingsContainer mainApp">
+
+    <div class="sidePanel left">
+        <form class="settingsForm" novalidate>
+            <div class="settingsRow">
+                <div class="title">NAME</div>
+                <input type="text" data-ng-model="accountInfo.name" maxlength="27" required>
+            </div>
+            <div class="settingsRow">
+                <div class="title">DESCRIPTION</div>
+                <textarea data-ng-model="accountInfo.description" maxlength="2000"></textarea>
+            </div>
+            <div class="settingsRow">
+                <div class="title">THEME</div>
+                <select data-ng-model="themeService.theme" data-ng-options="theme.name for theme in themeService.themes"></select>
+            </div>
+
+            <button class="btn btn-primary btn-sm" data-ng-click="save()" data-ng-disabled="saveSettingsDisabled()">SAVE</button>
+
+        </form>
+
+    </div>
+
+    <div class="mainPanel">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default {{selectWindow==1}}" data-ng-click="selectWindow = 1"><i class="fa fa-trash"></i> RECYCLE BIN</button>
+            <button type="button" class="btn btn-default {{selectWindow==2}}" data-ng-click="selectWindow = 2"><i class="fa fa-paint-brush"></i> THEME CREATOR</button>
+            <button type="button" class="btn btn-default {{selectWindow==3}}" data-ng-click="selectWindow = 3"><i class="fa fa-lock"></i> PASSWORD CONSTRAINTS</button>
+        </div>
+
+        <div class="recycleBin" data-ng-show="selectWindow == 1"></div>
+        <div class="themeCreator" data-ng-show="selectWindow == 2"></div>
+        <div class="passwordConstraints" data-ng-show="selectWindow == 3"></div>
+
+    </div>
+
+</div>

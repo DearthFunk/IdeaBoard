@@ -1,0 +1,41 @@
+div.boardManagementContainer form.boardEditForm > div.btn-group {
+    margin-bottom: 20px;
+}
+div.boardManagementContainer form.boardEditForm > table {
+    width: auto;
+}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.headerRow > td {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0 8px;
+    border-top: 0;
+    vertical-align: bottom;
+}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr > td.button > button {
+    width: 100%;
+    margin: 2px;
+}
+
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton.save:hover   { background-color: rgba(100,255,100,0.4);}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton.delete:hover { background-color: rgba(255,100,100,0.6);}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton:hover        { background-color: rgba(100,100,255,0.2);}
+
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.headerRow > td                { border-bottom: 2px solid #9f9f9f;}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton.main { border-left: 1px solid #9f9f9f; }
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton.main.bad { border: 2px solid #ff0000;}
+
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton.true  { background-color: rgba(100,255,100,0.2); }
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton.false { background-color: rgba(255,100,100,0.2); }
+
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.name {width: 150px;}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.desc {width: 250px;}
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.vm   {width: 180px;}
+
+div.boardManagementContainer form.boardEditForm > table > tbody > tr.boardRow > td.iconButton {
+    width: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+}
+

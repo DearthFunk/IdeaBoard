@@ -1,0 +1,27 @@
+<div class="headerContainer">
+
+    <div class="left" data-ng-class="{'shadow':boardInfo}">
+        <div class="title">{{boardInfo ? boardInfo.name : dataService.accountInfo.name}}</div>
+        <div class="description">{{boardInfo ? boardInfo.description : dataService.accountInfo.description}}</div>
+    </div>
+
+    <div class="right">
+        <div class="iconContainer">
+            <a data-ng-repeat="item in dataService.boards track by $index" data-ng-href="#board/{{item.id}}" data-ng-show="item.enabled">
+                <i class="fa {{item.icon}}"
+                   data-ng-class="{active: board == item}"
+                   data-ng-click="selectBoard($index)"
+                   data-ng-mouseenter="changeBoardInfo(item)"
+                   data-ng-mouseleave="changeBoardInfo('')">
+                </i>
+            </a>
+        </div>
+
+        <div class="history" data-ng-if="dataService.loggedInUser.preferences.showHistory">
+            <span data-ng-repeat="crumb in dataService.loggedInUser.history track by $index">
+                <a data-ng-href="{{crumb.url}}" class="text">{{crumb.txt}}</a>
+                <span class="separator" data-ng-show="$index != dataService.loggedInUser.history.length-1">/</span>
+            </span>
+        </div>
+    </div>
+</div>
